@@ -1,24 +1,24 @@
-﻿namespace GoXelaDelivery
+﻿using System;
+
+namespace GoXelaDelivery
 {
     public class Bicicleta : Vehiculo
     {
-        public Bicicleta(string codigo, string marca, string modelo, double costoOperativo)
-            : base(codigo, "", marca, modelo, 10, costoOperativo)
+        public Bicicleta(string codigo, string marca, string modelo, double capacidadMaxima, double costoOperativo)
+            : base(codigo, "N/A", marca, modelo, capacidadMaxima, costoOperativo)
         {
         }
 
         public override bool PuedeTransportar(Paquete paquete)
         {
-            if (paquete.Peso > CapacidadMaxima)
+            if (paquete == null) return false;
+
+            if (paquete is ProductoRefrigerado)
             {
                 return false;
             }
-            return true;
-        }
 
-        public override double CalcularCostoOperativo(double distancia)
-        {
-            return distancia * CostoOperativo;
+            return paquete.Peso <= CapacidadMaxima;
         }
     }
 }

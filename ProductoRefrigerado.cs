@@ -1,4 +1,6 @@
-﻿namespace GoXelaDelivery
+﻿using System;
+
+namespace GoXelaDelivery
 {
     public class ProductoRefrigerado : Paquete
     {
@@ -9,7 +11,12 @@
 
         public override double CalcularTarifa(double distancia)
         {
-            return distancia * 2.5;
+            if (distancia < 0)
+            {
+                distancia = 0;
+            }
+
+            return (distancia * 6.0) + (Peso * 4.5) + 20.0;
         }
     }
 }

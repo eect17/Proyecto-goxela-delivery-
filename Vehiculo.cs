@@ -4,32 +4,100 @@ namespace GoXelaDelivery
 {
     public abstract class Vehiculo
     {
-        public string Codigo { get; set; }
-        public string Placa { get; set; }
-        public string Marca { get; set; }
-        public string Modelo { get; set; }
-        public double CapacidadMaxima { get; set; }
-        public string Estado { get; set; }
-        public double CostoOperativo { get; set; }
+        private string codigo;
+        private string placa;
+        private string marca;
+        private string modelo;
+        private double capacidadMaxima;
+        private double costoOperativo;
+
+        public string Codigo
+        {
+            get { return codigo; }
+            private set
+            {
+                if (value != null && value != "")
+                    codigo = value;
+                else
+                    codigo = "V000";
+            }
+        }
+
+        public string Placa
+        {
+            get { return placa; }
+            private set
+            {
+                if (value != null && value != "")
+                    placa = value;
+                else
+                    placa = "N/A";
+            }
+        }
+
+        public string Marca
+        {
+            get { return marca; }
+            private set
+            {
+                if (value != null && value != "")
+                    marca = value;
+                else
+                    marca = "Genérica";
+            }
+        }
+
+        public string Modelo
+        {
+            get { return modelo; }
+            private set
+            {
+                if (value != null && value != "")
+                    modelo = value;
+                else
+                    modelo = "N/A";
+            }
+        }
+
+        public double CapacidadMaxima
+        {
+            get { return capacidadMaxima; }
+            private set
+            {
+                if (value > 0)
+                    capacidadMaxima = value;
+                else
+                    capacidadMaxima = 1.0;
+            }
+        }
+
+        public double CostoOperativo
+        {
+            get { return costoOperativo; }
+            private set
+            {
+                if (value >= 0)
+                    costoOperativo = value;
+                else
+                    costoOperativo = 0.0;
+            }
+        }
 
         public Vehiculo(string codigo, string placa, string marca, string modelo, double capacidadMaxima, double costoOperativo)
         {
-            if (capacidadMaxima < 0)
-            {
-                throw new Exception("La capacidad no puede ser negativa.");
-            }
-
             Codigo = codigo;
             Placa = placa;
             Marca = marca;
             Modelo = modelo;
             CapacidadMaxima = capacidadMaxima;
             CostoOperativo = costoOperativo;
-            Estado = "Disponible";
         }
 
         public abstract bool PuedeTransportar(Paquete paquete);
 
-        public abstract double CalcularCostoOperativo(double distancia);
+        public virtual void MostrarInformacion()
+        {
+            Console.WriteLine($"Vehículo: {Codigo} | Tipo: {GetType().Name} | Placa: {Placa} | Marca: {Marca} | Capacidad: {CapacidadMaxima}kg | Costo/km: Q{CostoOperativo}");
+        }
     }
 }
