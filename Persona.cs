@@ -6,7 +6,7 @@ class persona
         get { return nombre; }
         set
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 nombre = value;
             }
@@ -24,8 +24,8 @@ class persona
         get { return codigo; }
         set
         {
-            //esta palabra reservada es para que no pueda estar vacio 
-            if (string.IsNullOrEmpty(value))
+           
+            if (!string.IsNullOrEmpty(value))
             {
                 codigo = value;
             }
@@ -42,7 +42,7 @@ class persona
         get { return telefono; }
         set
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 telefono = value;
             }
@@ -62,7 +62,7 @@ class persona
 
     public static bool ValidarInfo(string nombre, string codigo, string telefono)
     {
-        if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(codigo) || string.IsNullOrEmpty(telefono))
+        if (!string.IsNullOrEmpty(nombre)  && !string.IsNullOrEmpty(codigo) && !string.IsNullOrEmpty(telefono))
         {
             return false;
         }

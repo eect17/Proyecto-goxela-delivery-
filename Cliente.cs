@@ -6,7 +6,7 @@ class cliente : persona
         get { return direccion; }
         set
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 direccion = value;
             }
@@ -23,7 +23,7 @@ class cliente : persona
         get { return correo; }
         set
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 correo = value;
             }
@@ -55,5 +55,4 @@ class cliente : persona
             Console.WriteLine("Error: No se puede actualizar la información. Los campos no pueden estar vacíos.");
         }
     }
-    //queda pendiente agregar metodos de registro de pedidos y el historia 
 }

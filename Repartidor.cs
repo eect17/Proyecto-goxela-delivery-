@@ -6,7 +6,7 @@ class repartidor : persona
         get { return licencia; }
         set
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 licencia = value;
             }
@@ -40,7 +40,7 @@ class repartidor : persona
         get { return estadoentrega; }
         set
         {
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 estadoentrega = value;
             }
