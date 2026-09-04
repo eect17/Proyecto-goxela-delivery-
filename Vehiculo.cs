@@ -10,6 +10,7 @@ namespace GoXelaDelivery
         private string modelo;
         private double capacidadMaxima;
         private double costoOperativo;
+        private string estado;
 
         public string Codigo
         {
@@ -83,6 +84,18 @@ namespace GoXelaDelivery
             }
         }
 
+        public string Estado
+        {
+            get { return estado; }
+            set
+            {
+                if (value != null && value != "")
+                    estado = value;
+                else
+                    estado = "Disponible";
+            }
+        }
+
         public Vehiculo(string codigo, string placa, string marca, string modelo, double capacidadMaxima, double costoOperativo)
         {
             Codigo = codigo;
@@ -91,6 +104,7 @@ namespace GoXelaDelivery
             Modelo = modelo;
             CapacidadMaxima = capacidadMaxima;
             CostoOperativo = costoOperativo;
+            Estado = "Disponible";
         }
 
         public abstract bool PuedeTransportar(Paquete paquete);
