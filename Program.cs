@@ -68,11 +68,11 @@ namespace GoXelaDelivery
                         break;
 
                     case 5:
-                        Console.WriteLine("\nSaliendo del sistema...");
+                        Console.WriteLine("Saliendo del sistema...");
                         break;
 
                     default:
-                        Console.WriteLine("\nOpción inválida. Presione cualquier tecla para continuar...");
+                        Console.WriteLine("Opción inválida. Presione cualquier tecla para continuar...");
                         Console.ReadKey();
                         break;
                 }
@@ -82,7 +82,7 @@ namespace GoXelaDelivery
         private static void RegistrarVehiculoMenu(List<Vehiculo> vehiculos)
         {
             Console.Clear();
-            Console.WriteLine("--- REGISTRO DE VEHÍCULO ---");
+            Console.WriteLine("--- REGISTRO DE VEHICULO ---");
             Console.WriteLine("1. Bicicleta");
             Console.WriteLine("2. Motocicleta");
             Console.WriteLine("3. Automóvil");
@@ -152,7 +152,7 @@ namespace GoXelaDelivery
                 vehiculos.Add(new Automovil(codigo, placa, marca, modelo, capacidad, costo));
             }
 
-            Console.WriteLine("\n¡Vehículo registrado exitosamente! Presione cualquier tecla...");
+            Console.WriteLine("Vehículo registrado exitosamente. Presione cualquier tecla...");
             Console.ReadKey();
         }
 
@@ -161,21 +161,21 @@ namespace GoXelaDelivery
             Console.Clear();
             Console.WriteLine("--- REGISTRO DE PAQUETE ---");
             Console.WriteLine("1. Documento");
-            Console.WriteLine("2. Paquete Estándar");
-            Console.WriteLine("3. Paquete Frágil");
+            Console.WriteLine("2. Paquete Estandar");
+            Console.WriteLine("3. Paquete Fragil");
             Console.WriteLine("4. Producto Refrigerado");
             Console.Write("Seleccione el tipo: ");
 
             int tipo;
             while (!int.TryParse(Console.ReadLine(), out tipo) || tipo < 1 || tipo > 4)
             {
-                Console.Write("Tipo inválido. Ingrese un número entre 1 y 4: ");
+                Console.Write("Tipo invalido. Ingrese un número entre 1 y 4: ");
             }
 
             string codigo = "";
             while (codigo == "" || codigo == null)
             {
-                Console.Write("Ingrese código: ");
+                Console.Write("Ingrese codigo: ");
                 codigo = Console.ReadLine();
             }
 
@@ -231,14 +231,14 @@ namespace GoXelaDelivery
                 paquetes.Add(new ProductoRefrigerado(codigo, descripcion, peso, valor, origen, destino));
             }
 
-            Console.WriteLine("\n¡Paquete registrado exitosamente! Presione cualquier tecla...");
+            Console.WriteLine("Paquete registrado exitosamente! Presione cualquier tecla...");
             Console.ReadKey();
         }
 
         private static void MostrarTodo(List<Vehiculo> vehiculos, List<Paquete> paquetes)
         {
             Console.Clear();
-            Console.WriteLine("--- LISTADO DE VEHÍCULOS ---");
+            Console.WriteLine("--- LISTADO DE VEHiCULOS ---");
             if (vehiculos.Count == 0)
             {
                 Console.WriteLine("No hay vehículos registrados.");
@@ -251,7 +251,7 @@ namespace GoXelaDelivery
                 }
             }
 
-            Console.WriteLine("\n--- LISTADO DE PAQUETES ---");
+            Console.WriteLine("--- LISTADO DE PAQUETES ---");
             if (paquetes.Count == 0)
             {
                 Console.WriteLine("No hay paquetes registrados.");
@@ -262,11 +262,11 @@ namespace GoXelaDelivery
                 {
                     paquetes[i].MostrarInformacion();
                     double tarifa = paquetes[i].CalcularTarifa(10.0);
-                    Console.WriteLine($"   --> Tarifa estimada (10 km): Q{tarifa}");
+                    Console.WriteLine($"   Tarifa estimada (10 km): Q{tarifa}");
                 }
             }
 
-            Console.WriteLine("\nPresione cualquier tecla para regresar al menú...");
+            Console.WriteLine("Presione cualquier tecla para regresar al menú...");
             Console.ReadKey();
         }
 
@@ -278,7 +278,7 @@ namespace GoXelaDelivery
             double capacidadTotal = SumarCapacidadRecursiva(vehiculos, 0);
 
             Console.WriteLine($"Cantidad de vehículos: {vehiculos.Count}");
-            Console.WriteLine($"Capacidad total acumulada (usando Recursividad): {capacidadTotal} kg");
+            Console.WriteLine($"Capacidad total acumulada : {capacidadTotal} kg");
 
             Console.WriteLine("\nPresione cualquier tecla para regresar al menú...");
             Console.ReadKey();
