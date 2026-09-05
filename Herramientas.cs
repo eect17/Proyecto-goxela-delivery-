@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoXelaDelivery
 {
-    internal class Herramientas
+    public class Herramientas
     {
+        public static unsafe void AplicarRecargoPorPuntero(double* valorTarifa, double porcentajeRecargo)
+        {
+            *valorTarifa = *valorTarifa + (*valorTarifa * (porcentajeRecargo / 100.0));
+        }
     }
 }

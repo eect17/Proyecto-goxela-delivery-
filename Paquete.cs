@@ -139,7 +139,7 @@ namespace GoXelaDelivery
         }
 
         // Constructor 2: Sobrecarga (simplificado)
-        public Paquete(string codigo, string descripcion, double peso)
+        public  Paquete(string codigo, string descripcion, double peso)
         {
             Codigo = codigo;
             Descripcion = descripcion;

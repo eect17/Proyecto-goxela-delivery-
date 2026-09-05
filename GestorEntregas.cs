@@ -106,5 +106,9 @@ namespace GoXelaDelivery
         {
             return entregas;
         }
+        public Entrega BuscarEntrega(string codigo)
+        {
+            return entregas.Find(e => e.Codigo == codigo);
+        }
     }
 }

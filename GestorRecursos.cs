@@ -74,5 +74,25 @@ namespace GoXelaDelivery
         {
             return vehiculos.FirstOrDefault(v => v.Estado == "Disponible" && v.PuedeTransportar(paquete));
         }
+
+        public Cliente BuscarClientePorCodigo(string codigo)
+        {
+            return clientes.Find(c => c.Codigo == codigo);
+        }
+
+        public Repartidor BuscarRepartidorPorCodigo(string codigo)
+        {
+            return repartidores.Find(r => r.Codigo == codigo);
+        }
+
+        public List<Vehiculo> ObtenerVehiculos()
+        {
+            return vehiculos;
+        }
+
+        public List<Paquete> ObtenerPaquetes()
+        {
+            return paquetes;
+        }
     }
 }
