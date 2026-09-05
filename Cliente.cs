@@ -1,58 +1,64 @@
-class cliente : persona
+using System;
+
+namespace GoXelaDelivery
 {
-    private string direccion;
-    public string Direccion
+    public class Cliente : Persona
     {
-        get { return direccion; }
-        set
+        private string direccion;
+        public string Direccion
         {
-            if (!string.IsNullOrEmpty(value))
+            get { return direccion; }
+            set
             {
-                direccion = value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    direccion = value;
+                }
+                else
+                {
+                    Console.WriteLine("La dirección no puede estar vacía.");
+                }
+            }
+        }
+
+        private string correo;
+        public string Correo
+        {
+            get { return correo; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    correo = value;
+                }
+                else
+                {
+                    Console.WriteLine("El correo no puede estar vacío.");
+                }
+            }
+        }
+
+        public override void MostrarInformacion()
+        {
+            base.MostrarInformacion();
+            Console.WriteLine($"Dirección: {Direccion}");
+            Console.WriteLine($"Correo: {correo}");
+        }
+
+        public void AcctualizarInfo(string nombre, string codigo, string telefono, string direccion, string correo)
+        {
+            if (ValidarInfo(nombre, codigo, telefono))
+            {
+                Nombre = nombre;
+                Codigo = codigo;
+                Telefono = telefono;
+                Direccion = direccion;
+                Correo = correo;
             }
             else
             {
-                Console.WriteLine("La dirección no puede estar vacía.");
+                Console.WriteLine("Error: No se puede actualizar la información. Los campos no pueden estar vacíos.");
             }
-        }
-    }
-
-    private string correo;
-    public string Correo
-    {
-        get { return correo; }
-        set
-        {
-            if (!string.IsNullOrEmpty(value))
-            {
-                correo = value;
-            }
-            else
-            {
-                Console.WriteLine("El correo no puede estar vacío.");
-            }
-        }
-    }
-    public override void MostrarInformacion()
-    {
-        base.MostrarInformacion();
-        Console.WriteLine($"Dirección: {Direccion}");
-        Console.WriteLine($"Correo: {correo}");
-    }
-
-    public void AcctualizarInfo(string nombre, string codigo, string telefono, string direccion, string correo)
-    {
-        if (ValidarInfo(nombre, codigo, telefono))
-        {
-            Nombre = nombre;
-            Codigo = codigo;
-            Telefono = telefono;
-            Direccion = direccion;
-            Correo = correo;
-        }
-        else
-        {
-            Console.WriteLine("Error: No se puede actualizar la información. Los campos no pueden estar vacíos.");
         }
     }
 }

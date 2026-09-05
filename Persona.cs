@@ -1,71 +1,74 @@
-class persona
+using System;
+
+namespace GoXelaDelivery
 {
-    private string nombre;
-    public string Nombre
+    public class Persona
     {
-        get { return nombre; }
-        set
+        private string nombre;
+        public string Nombre
         {
-            if (!string.IsNullOrEmpty(value))
+            get { return nombre; }
+            set
             {
-                nombre = value;
-            }
-            else
-            {
-                Console.WriteLine("El nombre no puede estar vacío.");
+                if (!string.IsNullOrEmpty(value))
+                {
+                    nombre = value;
+                }
+                else
+                {
+                    Console.WriteLine("El nombre no puede estar vacío.");
+                }
             }
         }
 
-    }
-
-    private string codigo;
-    public string Codigo
-    {
-        get { return codigo; }
-        set
+        private string codigo;
+        public string Codigo
         {
-           
-            if (!string.IsNullOrEmpty(value))
+            get { return codigo; }
+            set
             {
-                codigo = value;
-            }
-            else
-            {
-                Console.WriteLine("El código no puede estar vacío.");
+                if (!string.IsNullOrEmpty(value))
+                {
+                    codigo = value;
+                }
+                else
+                {
+                    Console.WriteLine("El código no puede estar vacío.");
+                }
             }
         }
-    }
 
-    private string telefono;
-    public string Telefono
-    {
-        get { return telefono; }
-        set
+        private string telefono;
+        public string Telefono
         {
-            if (!string.IsNullOrEmpty(value))
+            get { return telefono; }
+            set
             {
-                telefono = value;
-            }
-            else
-            {
-                Console.WriteLine("El teléfono no puede estar vacío.");
+                if (!string.IsNullOrEmpty(value))
+                {
+                    telefono = value;
+                }
+                else
+                {
+                    Console.WriteLine("El teléfono no puede estar vacío.");
+                }
             }
         }
-    }
 
-    public virtual void MostrarInformacion()
-    {
-        Console.WriteLine($"Nombre: {Nombre}");
-        Console.WriteLine($"Código: {Codigo}");
-        Console.WriteLine($"Teléfono: {Telefono}");
-    }
-
-    public static bool ValidarInfo(string nombre, string codigo, string telefono)
-    {
-        if (!string.IsNullOrEmpty(nombre)  && !string.IsNullOrEmpty(codigo) && !string.IsNullOrEmpty(telefono))
+        public virtual void MostrarInformacion()
         {
+            Console.WriteLine($"Nombre: {Nombre}");
+            Console.WriteLine($"Código: {Codigo}");
+            Console.WriteLine($"Teléfono: {Telefono}");
+        }
+
+        public static bool ValidarInfo(string nombre, string codigo, string telefono)
+        {
+            if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(codigo) && !string.IsNullOrEmpty(telefono))
+            {
+                return true;
+            }
             return false;
         }
-        return true;
     }
 }
