@@ -37,7 +37,10 @@ namespace GoXelaDelivery
             FechaSolicitud = DateTime.Now;
             Estado = "Solicitada";
         }
-
+        public Entrega(string codigo, Cliente cliente, Paquete paquete, string direccionOrigen, string direccionDestino, double distanciaEstimada)
+    : this(codigo, cliente, paquete, direccionOrigen, direccionDestino, distanciaEstimada, "Normal")
+        {
+        }
         public void AsignarRecursos(Repartidor repartidor, Vehiculo vehiculo)
         {
             Repartidor = repartidor;
